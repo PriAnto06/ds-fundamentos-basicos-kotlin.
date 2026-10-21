@@ -1,23 +1,32 @@
 package edu.etec.ds.fundamentos
 
 fun sumarHasta(n: Int): Int {
-    TODO("Sumar todos los numeros desde 1 hasta n (inclusive)")
+    return (1..n).sum()
 }
 
 fun contarPares(inicio: Int, fin: Int): Int {
-    TODO("Contar numeros pares en el rango [inicio, fin]")
+    return (inicio..fin).count{ it % 2 ==0}
 }
 
 fun fibonacci(n: Int): Int {
-    TODO("Retornar el n-esimo numero de Fibonacci")
+    if (n <= 0) return 0
+    if (n == 1) return 1
+    var a = 0
+    var b = 1
+    for (i in 2..n) {
+        val temp = a + b
+        a = b
+        b = temp
+    }
+    return b
 }
 
 fun factorial(n: Int): Int {
-    TODO("Calcular el factorial de n")
+    return (1..n).fold(1) { acc, i -> acc * i }
 }
 
 fun encontrarMaximo(numeros: List<Int>): Int {
-    TODO("Encontrar el valor maximo en la lista")
+    return numeros.maxOrNull() ?: throw IllegalArgumentException("La lista no puede estar vacía")
 }
 
 fun encontrarMinimo(numeros: List<Int>): Int {
